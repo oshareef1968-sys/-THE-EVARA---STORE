@@ -1,170 +1,375 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE EVARA — Original Art</title>
+    <title>THE EVARA — Original Art. Human Story.</title>
+    <!-- استدعاء خطوط فخمة من جوجل تناسب صالات العرض العالمية -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* تصميم فخم وأنيق باللونين الأبيض والأسود يناسب هوية المتجر الحقيقية */
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+        :root {
+            --bg-color: #fbfbfb;
+            --text-color: #111111;
+            --accent-color: #555555;
+            --border-color: #eaeaea;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #fbfbfb;
-            color: #111;
         }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* شريط التنقل الفاخر */
         header {
-            background-color: #fff;
-            padding: 25px 50px;
+            background-color: #ffffff;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
-        }
-        nav a {
-            margin-right: 20px;
             text-decoration: none;
-            color: #555;
-            font-size: 15px;
+            color: var(--text-color);
         }
-        nav a:hover { color: #000; }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-color);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .selector {
+            border: none;
+            background: transparent;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            color: var(--accent-color);
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* الأزرار الراقية */
+        .btn {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: #ffffff;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--text-color);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.85);
+            color: var(--text-color);
+            border: 1px solid #111;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background-color: #111;
+            color: #fff;
+        }
+
+        /* الفكرة الذكية: واجهة الهيرو مع خلفية لوحة فنية كلاسيكية مشهورة مدمجة بنعومة */
         .hero {
+            position: relative;
             text-align: center;
-            padding: 80px 20px;
-            background-color: #fff;
-            max-width: 800px;
-            margin: 40px auto;
-            border: 1px solid #eee;
+            padding: 160px 20px;
+            /* استدعاء لوحة فنية كلاسيكية دافئة ومنظمة من الإنترنت كمثال */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(251, 251, 251, 1)), 
+                              url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border-color);
         }
-        .hero h1 { font-size: 32px; font-weight: 400; margin-bottom: 20px; text-transform: uppercase; }
-        .hero p { color: #666; font-size: 16px; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .art-card { background: #fff; border: 1px solid #eee; overflow: hidden; }
-        .art-card img { width: 100%; height: 350px; object-fit: cover; }
-        .art-card-body { padding: 25px; text-align: center; }
-        .art-title { font-size: 18px; margin: 0 0 8px 0; font-weight: 500; }
-        .artist { color: #777; font-size: 14px; margin-bottom: 12px; }
-        .price { font-size: 16px; font-weight: bold; margin-bottom: 20px; }
-        .btn { display: inline-block; background-color: #111; color: #fff; padding: 12px 30px; text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; width: 100%; box-sizing: border-box; }
-        .btn:hover { background-color: #333; }
-        /* نافذة الشراء المنبثقة للزبون وبحساب عمولة 10% */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #fff; padding: 35px; width: 90%; max-width: 450px; border: 1px solid #111; }
-        .modal h3 { margin-top: 0; margin-bottom: 20px; font-weight: 400; text-align: center; }
-        .form-group { margin-bottom: 15px; text-align: right; }
-        .form-group label { display: block; margin-bottom: 5px; font-size: 14px; color: #444; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; box-sizing: border-box; }
-        footer { text-align: center; padding: 40px; color: #888; font-size: 13px; margin-top: 60px; border-top: 1px solid #eee; }
+
+        .trust-badge-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #111;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 6px 16px;
+            border: 1px solid #111;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 58px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #222;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            font-weight: 400;
+        }
+
+        /* الشبكة والمعرض */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .trust-section {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .trust-item h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .trust-item p {
+            font-size: 14px;
+            color: var(--accent-color);
+        }
+
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .art-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .art-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .art-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .art-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .badge-verified {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #111;
+            font-size: 11px;
+            padding: 4px 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .art-info {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .art-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        .art-artist {
+            font-size: 14px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .art-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .art-price {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* نافذة الشراء (Checkout Modal) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(3px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            width: 90%;
+            max-width: 460px;
+            border: 1px solid #111;
+        }
+
+        .modal h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 60px 40px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            display: block;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 13px;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر العلوي للموقع -->
     <header>
-        <div class="logo">THE EVARA</div>
+        <a href="#" class="logo">THE EVARA</a>
         <nav>
-            <a href="#">الرئيسية</a>
-            <a href="#shop">تصفح اللوحات</a>
-        </nav>
-    </header>
-
-    <!-- قسم الترحيب المقتبس من هوية موقعك في فرامير -->
-    <div class="hero">
-        <h1>Welcome to a marketplace for original paintings with a human mark</h1>
-        <p>اكتشف لوحات فنية أصلية واقتنِها بكل ثقة وتواصل مباشرة مع الفنانين. نقتطع عمولة بنسبة 10% فقط لدعم استمرارية المنصة وتوصيل الفن بأمان لشحن اللوحات.</p>
-    </div>
-
-    <!-- شبكة تصفح وعرض اللوحات الفنية (المتجر) -->
-    <div class="container" id="shop">
-        <div class="art-grid">
-            
-            <!-- لوحة 1 المعروضة للبيع -->
-            <div class="art-card">
-                <img src="https://unsplash.com" alt="Crimson Field">
-                <div class="art-card-body">
-                    <div class="art-title">Crimson Field</div>
-                    <div class="artist">الفنانة: Mira Kova</div>
-                    <div class="price">150 دولار</div>
-                    <button class="btn" onclick="openCheckout('Crimson Field', '150 دولار')">شراء اللوحة الآن</button>
-                </div>
-            </div>
-
-            <!-- لوحة 2 المعروضة للبيع -->
-            <div class="art-card">
-                <img src="https://unsplash.com" alt="Saltwater Study">
-                <div class="art-card-body">
-                    <div class="art-title">Saltwater Study</div>
-                    <div class="artist">الفنان: Emre Sönmez</div>
-                    <div class="price">200 دولار</div>
-                    <button class="btn" onclick="openCheckout('Saltwater Study', '200 دولار')">شراء اللوحة الآن</button>
-                </div>
-            </div>
-
-            <!-- لوحة 3 المعروضة للبيع -->
-            <div class="art-card">
-                <img src="https://unsplash.com" alt="Sunlit Matter">
-                <div class="art-card-body">
-                    <div class="art-title">Sunlit Matter</div>
-                    <div class="artist">الفنانة: Leyla Aydın</div>
-                    <div class="price">120 دولار</div>
-                    <button class="btn" onclick="openCheckout('Sunlit Matter', '120 دولار')">شراء اللوحة الآن</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- نافذة إتمام الدفع والشراء البسيطة (Checkout) تظهر تلقائياً للزبون -->
-    <div class="modal" id="checkoutModal">
-        <div class="modal-content">
-            <h3 id="modalTitle">إتمام طلب الشراء</h3>
-            <form id="orderForm">
-                <div class="form-group">
-                    <label>اسم المشتري الكامل</label>
-                    <input type="text" id="custName" required placeholder="اكتب اسمك الثلاثي">
-                </div>
-                <div class="form-group">
-                    <label>رقم هاتف المشتري (مع مفتاح الدولة)</label>
-                    <input type="tel" id="custPhone" required placeholder="+966 500000000">
-                </div>
-                <div class="form-group">
-                    <label>عنوان شحن اللوحة الفنية بالتفصيل</label>
-                    <input type="text" id="custAddress" required placeholder="المدينة، الحي، اسم الشارع والمبنى">
-                </div>
-                <button type="submit" class="btn" style="margin-top: 10px;">تأكيد وحفظ طلب الشراء</button>
-                <button type="button" class="btn" style="background:#ccc; margin-top: 10px;" onclick="closeCheckout()">إلغاء وتراجع</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- تذييل الصفحة -->
-    <footer>
-        © 2026 THE EVARA · Original art, thoughtfully collected · hello@theevara.com
-    </footer>
-
-    <!-- برمجة الأزرار بشكل بسيط وتفاعلي من المتصفح -->
-    <script>
-        let currentItem = "";
-        function openCheckout(title, price) {
-            currentItem = title + " (" + price + ")";
-            document.getElementById('modalTitle').innerText = "طلب لوحة: " + currentItem;
-            document.getElementById('checkoutModal').style.display = 'flex';
-        }
-        function closeCheckout() {
-            document.getElementById('checkoutModal').style.display = 'none';
-        }
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('شكراً لك من THE EVARA! تم تسجيل طلب الشراء للوحة ' + currentItem + ' بنجاح. سنقوم كمنصة بالتواصل معك ومع الفنان هاتفياً خلال ساعات لتأكيد استلام المبلغ، شحن اللوحة، واستقطاع عمولتنا (10%).');
-            closeCheckout();
-        });
-    </script>
-</body>
-</html>
+            <a href="#">Home</a>
+            <a href="#shop">Shop</a>
