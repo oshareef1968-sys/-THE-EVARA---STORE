@@ -1,135 +1,46 @@
-[2:54 pm, 02/08/2026] Osama: <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE EVARA — Original Art</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg-color: #fcfcfc; --text-color: #111111; --accent-color: #555555; --border-color: #eaeaea; --font-serif: 'Playfair Display', Georgia, serif; --font-sans: 'Plus Jakarta Sans', Arial, sans-serif; }
-        * { box-sizing: border-box; margin: 0; paddi…
-[3:00 pm, 02/08/2026] Osama: <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE EVARA — Original Art</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg-color: #fcfcfc; --text-color: #111111; --accent-color: #555555; --border-color: #eaeaea; --font-serif: 'Playfair Display', Georgia, serif; --font-sans: 'Plus Jakarta Sans', Arial, sans-serif; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-        header { background-color: #ffffff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: var(--font-serif); font-size: 24px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; color: var(--text-color); }
-        nav { display: flex; gap: 25px; }
-        nav a { text-decoration: none; color: var(--accent-color); font-size: 14px; transition: color 0.2s; }
-        nav a:hover { color: var(--text-color); }
-        .header-right { display: flex; align-items: center; gap: 20px; }
-        .selector { border: none; background: transparent; font-family: var(--font-sans); font-size: 13px; color: var(--accent-color); cursor: pointer; }
-        .btn { display: inline-block; background-color: var(--text-color); color: #ffffff; padding: 12px 28px; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--text-color); cursor: pointer; transition: all 0.3s; }
-        .btn:hover { background-color: transparent; color: var(--text-color); }
-        .btn-secondary { background-color: transparent; color: var(--text-color); border: 1px solid var(--border-color); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        .section-title { font-family: var(--font-serif); font-size: 36px; text-align: center; margin-bottom: 50px; font-weight: 400; letter-spacing: 1px; }
-        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(to bottom, #ffffff, var(--bg-color)); border-bottom: 1px solid var(--border-color); }
-        .hero h1 { font-family: var(--font-serif); font-size: 56px; font-weight: 400; margin-bottom: 20px; letter-spacing: 1px; }
-        .hero p { font-size: 18px; color: var(--accent-color); max-width: 600px; margin: 0 auto 40px auto; font-weight: 300; }
-        .trust-section { background-color: #ffffff; border-bottom: 1px solid var(--border-color); }
-        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
-        .trust-item h3 { font-family: var(--font-serif); font-size: 20px; margin-bottom: 10px; font-weight: 400; }
-        .trust-item p { font-size: 14px; color: var(--accent-color); font-weight: 300; }
-        .trust-badge-mini { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 15px; background: #f4f4f4; padding: 4px 12px; border-radius: 20px; }
-        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        .art-card { background-color: #ffffff; border: 1px solid var(--border-color); transition: all 0.3s; }
-        .art-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .art-img-wrapper { position: relative; overflow: hidden; background: #eee; }
-        .art-card img { width: 100%; height: 400px; object-fit: cover; display: block; }
-        .badge-verified { position: absolute; top: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #111; font-size: 11px; padding: 4px 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .art-info { padding: 25px; text-align: left; }
-        .art-title { font-family: var(--font-serif); font-size: 22px; margin-bottom: 5px; font-weight: 400; }
-        .art-artist { font-size: 14px; color: var(--accent-color); margin-bottom: 15px; }
-        .art-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; margin-top: 15px; }
-        .art-price { font-size: 18px; font-weight: 600; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: white; padding: 40px; width: 90%; max-width: 460px; border: 1px solid #111; }
-        .modal h3 { font-family: var(--font-serif); font-size: 24px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; font-weight: 400; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 6px; font-size: 13px; text-transform: uppercase; color: #555; }
-        .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; outline: none; }
-        footer { background-color: #ffffff; border-top: 1px solid var(--border-color); padding: 60px 40px; margin-top: 60px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 40px; text-align: left; }
-        .footer-col h4 { font-size: 14px; text-transform: uppercase; margin-bottom: 20px; }
-        .footer-col a { display: block; text-decoration: none; color: var(--accent-color); font-size: 14px; margin-bottom: 10px; }
-        .footer-bottom { text-align: center; margin-top: 60px; font-size: 13px; color: var(--accent-color); border-top: 1px solid var(--border-color); padding-top: 30px; }
-    </style>
-</head>
-<body>
-    <header>
-        <a href="#" class="logo">THE EVARA</a>
-        <nav><a href="#">Home</a><a href="#shop">Shop</a><a href="#shop">Artists</a><a href="#footer">Contact</a></nav>
-        <div class="header-right">
-            <select class="selector" id="langSelect" onchange="toggleLanguage()"><option value="EN">EN</option><option value="TR">TR</option></select>
-            <select class="selector" id="currencySelect" onchange="updateCurrency()"><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option><option value="TRY">TRY (TL)</option></select>
-            <button class="btn btn-secondary" onclick="alert('Applications open soon.')">Join as Artist</button>
-        </div>
-    </header>
+ خلفية متدرجة متحركة للقسم الرئيسي */
+.hero {
+    background: linear-gradient(270deg, #fdfcfb, #e2d1c3);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
 
-    <section class="hero">
-        <div class="trust-badge-mini">✔️ Handcrafted & Verified</div>
-        <h1 id="heroTitle">Original Art. Human Story.</h1>
-        <p id="heroSubtitle">A curated marketplace for authentic, handmade paintings — directly from real artists.</p>
-        <div class="hero-btns"><a href="#shop" class="btn" id="btnBrowse">Browse Art</a></div>
-    </section>
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
 
-    <section class="container trust-section">
-        <h2 class="section-title" id="trustTitle">Why THE EVARA?</h2>
-        <div class="trust-grid">
-            <div class="trust-item"><h3>Pure Authenticity</h3><p>Only original handmade artworks. No prints, no AI.</p></div>
-            <div class="trust-item"><h3>Fair Control</h3><p>Artists hold 100% control and set their own prices.</p></div>
-            <div class="trust-item"><h3>10% Commission</h3><p>Only a clear 10% commission after a successful sale.</p></div>
-            <div class="trust-item"><h3>Secure Escrow</h3><p>Payment is securely held until delivery is confirmed.</p></div>
-        </div>
-    </section>
+/* تأثير ظهور تدريجي للعناصر */
+.art-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+.art-card:nth-child(1) {animation-delay: 0.3s;}
+.art-card:nth-child(2) {animation-delay: 0.6s;}
+.art-card:nth-child(3) {animation-delay: 0.9s;}
 
-    <!-- معرض الأعمال الفنية الملون والنابض بالحياة -->
-    <section class="container" id="shop">
-        <h2 class="section-title" id="featuredTitle">Featured Works</h2>
-        <div class="art-grid">
-            
-            <!-- لوحة 1: لوحة زيتية ملونة للبحر والمحيط -->
-            <div class="art-card">
-                <div class="art-img-wrapper">
-                    <div class="badge-verified">✔️ Human Verified</div>
-                    <img src="https://unsplash.com" alt="Ocean Whispers">
-                </div>
-                <div class="art-info">
-                    <div class="art-title">Ocean Whispers</div>
-                    <div class="art-artist">Artist: Leyla Aydın</div>
-                    <div class="art-meta">
-                        <div class="art-price" data-usd="450">450 USD</div>
-                        <button class="btn" onclick="openCheckout('Ocean Whispers', 450)">View Artwork</button>
-                    </div>
-                </div>
-            </div>
+@keyframes fadeUp {
+    to {opacity: 1; transform: translateY(0);}
+}
 
-            <!-- لوحة 2: لوحة أكريليك تجريدية مليئة بالألوان الحية والحركية -->
-            <div class="art-card">
-                <div class="art-img-wrapper">
-                    <div class="badge-verified">✔️ Human Verified</div>
-                    <img src="https://unsplash.com" alt="Vibrant Symphony">
-                </div>
-                <div class="art-info">
-                    <div class="art-title">Vibrant Symphony</div>
-                    <div class="art-artist">Artist: Emre Sönmez</div>
-                    <div class="art-meta">
-                        <div class="art-price" data-usd="620">620 USD</div>
-                        <button class="btn" onclick="openCheckout('Vibrant Symphony', 620)">View Artwork</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- لوحة 3: لوحة زيتية طبيعية دافئة بألوان الخريف المبهجة -->
+/* أزرار نابضة */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.2);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% {transform: scale(0);}
+    50% {transform: scale(1);}
+    100% {transform: scale(0);}
