@@ -3,372 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE EVARA — Original Art. Human Story.</title>
-    <!-- استدعاء خطوط فخمة من جوجل: خط Serif للعناوين و Sans-Serif للنصوص -->
+    <title>THE EVARA — Original Art</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* التنسيقات العامة للموقع الفاخر */
-        :root {
-            --bg-color: #fcfcfc; /* لون Off-white خفيف وناعم للموقع */
-            --text-color: #111111;
-            --accent-color: #555555;
-            --border-color: #eaeaea;
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Plus Jakarta Sans', Arial, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            /* أنيميشن خفيف جداً عند تحميل الموقع ليعطي شعور الهدوء */
-            animation: fadeInPage 1.2s ease-in-out;
-        }
-
-        @keyframes fadeInPage {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* 1) الهيدر العلوي والتنقل الفاخر */
-        header {
-            background-color: #ffffff;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--accent-color);
-            font-size: 14px;
-            font-weight: 400;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--text-color);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        /* قوائم الاختيار الذكية للغة والعملة */
-        .selector {
-            border: none;
-            background: transparent;
-            font-family: var(--font-sans);
-            font-size: 13px;
-            color: var(--accent-color);
-            cursor: pointer;
-            outline: none;
-        }
-
-        .selector:hover {
-            color: var(--text-color);
-        }
-
-        /* الأزرار الأساسية الفخمة */
-        .btn {
-            display: inline-block;
-            background-color: var(--text-color);
-            color: #ffffff;
-            padding: 12px 28px;
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 1px solid var(--text-color);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--text-color);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--text-color);
-        }
-
-        /* مساحات عامة للمحتوى */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 36px;
-            font-weight: 400;
-            text-align: center;
-            margin-bottom: 50px;
-            letter-spacing: 1px;
-        }
-
-        /* 2) قسم الهيرو (HERO SECTION) */
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-            background: linear-gradient(to bottom, #ffffff, var(--bg-color));
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: 56px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--accent-color);
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            font-weight: 300;
-        }
-
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        /* 3) قسم الثقة (TRUST SECTION) */
-        .trust-section {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-
-        .trust-item h3 {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
-
-        .trust-item p {
-            font-size: 14px;
-            color: var(--accent-color);
-            font-weight: 300;
-        }
-
-        /* شارات الأمان الدقيقة لتعزيز مصداقية المنصة */
-        .trust-badge-mini {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #666;
-            margin-bottom: 15px;
-            background: #f4f4f4;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        /* 4) قسم معرض اللوحات (FEATURED ARTWORKS) */
-        .art-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .art-card {
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .art-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-        }
-
-        .art-img-wrapper {
-            position: relative;
-            overflow: hidden;
-            background: #eee;
-        }
-
-        .art-card img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .badge-verified {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #111;
-            font-size: 11px;
-            padding: 4px 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .art-info {
-            padding: 25px;
-            text-align: left;
-        }
-
-        .art-title {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 400;
-            margin-bottom: 5px;
-        }
-
-        .art-artist {
-            font-size: 14px;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .art-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 15px;
-            margin-top: 15px;
-        }
-
-        .art-price {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .art-info .btn {
-            padding: 8px 16px;
-            font-size: 11px;
-            width: auto;
-        }
-
-        /* 5) قسم آلية العمل الذكي (HOW IT WORKS) */
-        .how-section {
-            background-color: #ffffff;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .how-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .how-column h3 {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-weight: 400;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .step {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .step-num {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            color: #ccc;
-            line-height: 1;
-        }
-
-        .step-text h4 {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .step-text p {
-            font-size: 14px;
-            color: var(--accent-color);
-            font-weight: 300;
-        }
-
-        /* 6) قسم الفنانين (FOR ARTISTS SECTION) */
-        .artists-pitch {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .artists-pitch p {
-            font-size: 16px;
-            color: var(--accent-color);
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .artists-points {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-            font-size: 14px;
-        }
-
-        /* 7) قيم المنصة والفلسفة الفنية (PLATFORM VALUES) */
-        .philosophy-section {
-            background-color: #111111;
+        :root { --bg-color: #fcfcfc; --text-color: #111111; --accent-color: #555555; --border-color: #eaeaea; --font-serif: 'Playfair Display', Georgia, serif; --font-sans: 'Plus Jakarta Sans', Arial, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; animation: fadeInPage 1.2s ease-in-out; }
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+        header { background-color: #ffffff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        .logo { font-family: var(--font-serif); font-size: 24px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; color: var(--text-color); }
+        nav { display: flex; gap: 25px; }
+        nav a { text-decoration: none; color: var(--accent-color); font-size: 14px; transition: color 0.2s; }
+        nav a:hover { color: var(--text-color); }
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .selector { border: none; background: transparent; font-family: var(--font-sans); font-size: 13px; color: var(--accent-color); cursor: pointer; }
+        .btn { display: inline-block; background-color: var(--text-color); color: #ffffff; padding: 12px 28px; text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; border: 1px solid var(--text-color); cursor: pointer; transition: all 0.3s; }
+        .btn:hover { background-color: transparent; color: var(--text-color); }
+        .btn-secondary { background-color: transparent; color: var(--text-color); border: 1px solid var(--border-color); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        .section-title { font-family: var(--font-serif); font-size: 36px; text-align: center; margin-bottom: 50px; }
+        .hero { text-align: center; padding: 120px 20px; background: linear-gradient(to bottom, #ffffff, var(--bg-color)); border-bottom: 1px solid var(--border-color); }
+        .hero h1 { font-family: var(--font-serif); font-size: 56px; font-weight: 400; margin-bottom: 20px; }
+        .hero p { font-size: 18px; color: var(--accent-color); max-width: 600px; margin: 0 auto 40px auto; }
+        .hero-btns { display: flex; justify-content: center; gap: 15px; }
+        .trust-section { background-color: #ffffff; border-bottom: 1px solid var(--border-color); }
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .trust-item h3 { font-family: var(--font-serif); font-size: 20px; margin-bottom: 10px; }
+        .trust-item p { font-size: 14px; color: var(--accent-color); }
+        .trust-badge-mini { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 15px; background: #f4f4f4; padding: 4px 12px; border-radius: 20px; }
+        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .art-card { background-color: #ffffff; border: 1px solid var(--border-color); transition: all 0.3s; }
+        .art-img-wrapper { position: relative; overflow: hidden; background: #eee; }
+        .art-card img { width: 100%; height: 380px; object-fit: cover; display: block; }
+        .badge-verified { position: absolute; top: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: #111; font-size: 11px; padding: 4px 10px; text-transform: uppercase; }
+        .art-info { padding: 25px; text-align: left; }
+        .art-title { font-family: var(--font-serif); font-size: 20px; margin-bottom: 5px; }
+        .art-artist { font-size: 14px; color: var(--accent-color); }
+        .art-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 15px; margin-top: 15px; }
+        .art-price { font-size: 16px; font-weight: 600; }
+        .how-section { background-color: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .how-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        .how-column h3 { font-family: var(--font-serif); font-size: 24px; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .step { display: flex; gap: 20px; margin-bottom: 25px; }
+        .step-num { font-family: var(--font-serif); font-size: 24px; color: #ccc; }
+        .step-text h4 { font-size: 16px; margin-bottom: 5px; }
+        .step-text p { font-size: 14px; color: var(--accent-color); }
+        .philosophy-section { background-color: #111111; color: #ffffff; text-align: center; }
+        .philosophy-content h2 { font-family: var(--font-serif); font-size: 36px; margin-bottom: 20px; }
+        .philosophy-content p { font-size: 18px; color: #aaa; margin-bottom: 40px; }
+        .phil-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; }
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .category-card { background: #ffffff; border: 1px solid var(--border-color); padding: 40px 20px; text-align: center; transition: all 0.3s; }
+        .category-card:hover { border-color: var(--text-color); }
+        .category-card h3 { font-family: var(--font-serif); font-size: 20px; margin-bottom: 8px; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: white; padding: 40px; width: 90%; max-width: 460px; border: 1px solid #111; }
+        .modal h3 { font-family: var(--font-serif); font-size: 24px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 6px; font-size: 13px; text-transform: uppercase; color: #555; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; outline: none; }
+        footer { background-color: #ffffff; border-top: 1px solid var(--border-color); padding: 60px 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 40px; text-align: left; }
+        .footer-col h4 { font-size: 14px; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-col a { display: block; text-decoration: none; color: var(--accent-color); font-size: 14px; margin-bottom: 10px; }
+        .footer-bottom { text-align: center; margin-top: 60px; font-size: 13px; color: var(--accent-color); border-top: 1px solid var(--border-color); padding-top: 30px; }
+        @media (max-width: 768px) { header { flex-direction: column; gap: 15px; } .hero h1 { font-size: 38px; } .how-container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">THE EVARA</a>
+        <nav><a href="#">Home</a><a href="#shop">Shop</a><a href="#how-it-works">Artists</a><a href="#philosophy">About</a><a href="#footer">Contact</a></nav>
+        <div class="header-right">
+            <select class="selector" id="langSelect" onchange="toggleLanguage()"><option value="EN">EN</option><option value="TR">TR</option></select>
+            <select class="selector" id="currencySelect" onchange="updateCurrency()"><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option><option value="TRY">TRY (TL)</option></select>
+            <button class="btn btn-secondary" onclick="alert('Applications open soon.')">Join as Artist</button>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="trust-badge-mini">✔️ Handcrafted & Verified</div>
+        <h1 id="heroTitle">Original Art. Human Story.</h1>
+        <p id="heroSubtitle">A curated marketplace for authentic, handmade paintings — directly from real artists.</p>
+        <div class="hero-btns"><a href="#shop" class="btn" id="btnBrowse">Browse Art</a></div>
+    </section>
+    <section class="container trust-section">
+        <h2 class="section-title" id="trustTitle">Why THE EVARA?</h2>
+        <div class="trust-grid">
+            <div class="trust-item"><h3>Pure Authenticity</h3><p>Only original handmade artworks. No prints, no AI.</p></div>
+            <div class="trust-item"><h3>Fair Control</h3><p>Artists hold 100% control and set their own prices.</p></div>
+            <div class="trust-item"><h3>10% Commission</h3><p>Only a clear 10% commission after a successful sale.</p></div>
+            <div class="trust-item"><h3>Secure Escrow</h3><p>Payment is securely held until delivery is confirmed.</p></div>
+        </div>
+    </section>
+    <section class="container" id="shop">
+        <h2 class="section-title" id="featuredTitle">Featured Works</h2>
+        <div class="art-grid">
+            <div class="art-card">
+                <div class="art-img-wrapper"><div class="badge-verified">✔️ Human Verified</div><img src="https://unsplash.com" alt="Sunlit"></div>
