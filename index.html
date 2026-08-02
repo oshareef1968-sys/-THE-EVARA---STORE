@@ -1,170 +1,296 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE EVARA — Original Art</title>
+    <title>THE EVARA</title>
+
     <style>
-        /* تصميم فخم وأنيق باللونين الأبيض والأسود يناسب هوية المتجر الحقيقية */
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #fbfbfb;
+            background: #fafafa;
+            text-align: center;
             color: #111;
         }
+
         header {
-            background-color: #fff;
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-        .logo {
-            font-size: 22px;
+            padding: 20px;
+            font-size: 24px;
             font-weight: bold;
             letter-spacing: 2px;
-            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            background: white;
         }
-        nav a {
-            margin-right: 20px;
-            text-decoration: none;
-            color: #555;
-            font-size: 15px;
-        }
-        nav a:hover { color: #000; }
+
         .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background-color: #fff;
-            max-width: 800px;
-            margin: 40px auto;
-            border: 1px solid #eee;
+            padding: 60px 20px;
+            background: white;
         }
-        .hero h1 { font-size: 32px; font-weight: 400; margin-bottom: 20px; text-transform: uppercase; }
-        .hero p { color: #666; font-size: 16px; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .art-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .art-card { background: #fff; border: 1px solid #eee; overflow: hidden; }
-        .art-card img { width: 100%; height: 350px; object-fit: cover; }
-        .art-card-body { padding: 25px; text-align: center; }
-        .art-title { font-size: 18px; margin: 0 0 8px 0; font-weight: 500; }
-        .artist { color: #777; font-size: 14px; margin-bottom: 12px; }
-        .price { font-size: 16px; font-weight: bold; margin-bottom: 20px; }
-        .btn { display: inline-block; background-color: #111; color: #fff; padding: 12px 30px; text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; width: 100%; box-sizing: border-box; }
-        .btn:hover { background-color: #333; }
-        /* نافذة الشراء المنبثقة للزبون وبحساب عمولة 10% */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #fff; padding: 35px; width: 90%; max-width: 450px; border: 1px solid #111; }
-        .modal h3 { margin-top: 0; margin-bottom: 20px; font-weight: 400; text-align: center; }
-        .form-group { margin-bottom: 15px; text-align: right; }
-        .form-group label { display: block; margin-bottom: 5px; font-size: 14px; color: #444; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; box-sizing: border-box; }
-        footer { text-align: center; padding: 40px; color: #888; font-size: 13px; margin-top: 60px; border-top: 1px solid #eee; }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        .section {
+            padding: 40px 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin: 15px 0 5px 0;
+            font-size: 18px;
+        }
+
+        .card .artist-name {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .card .price {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* نافذة الشراء المنبثقة البسيطة (Checkout Modal) */
+        .modal {
+            display: none; /* مخفية افتراضياً وتظهر عند الضغط على الزر */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: left; /* الكتابة من اليسار لليمن للغة الإنجليزية */
+        }
+
+        .modal h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .footer {
+            padding: 30px;
+            color: gray;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+            font-size: 14px;
+        }
     </style>
 </head>
+
 <body>
 
-    <!-- الهيدر العلوي للموقع -->
-    <header>
-        <div class="logo">THE EVARA</div>
-        <nav>
-            <a href="#">الرئيسية</a>
-            <a href="#shop">تصفح اللوحات</a>
-        </nav>
-    </header>
+<header>
+    THE EVARA
+</header>
 
-    <!-- قسم الترحيب المقتبس من هوية موقعك في فرامير -->
-    <div class="hero">
-        <h1>Welcome to a marketplace for original paintings with a human mark</h1>
-        <p>اكتشف لوحات فنية أصلية واقتنِها بكل ثقة وتواصل مباشرة مع الفنانين. نقتطع عمولة بنسبة 10% فقط لدعم استمرارية المنصة وتوصيل الفن بأمان لشحن اللوحات.</p>
+<!-- قسم الواجهة الترحيبية (HERO) -->
+<section class="hero">
+    <h1>Discover Original Art from Real Artists</h1>
+    <p>Buy directly from artists. Only 10% commission after sale.</p>
+    <!-- عند الضغط ينزل الزائر مباشرة لقسم المعرض بالأسفل -->
+    <a href="#shop" class="btn">Browse Art</a>
+</section>
+
+<!-- قسم معرض اللوحات (FEATURED ARTWORKS) -->
+<section class="section" id="shop">
+    <h2>Featured Artworks</h2>
+
+    <div class="grid">
+
+        <!-- اللوحة الأولى -->
+        <div class="card">
+            <!-- يمكنك تبديل هذه الروابط المؤقتة بروابط صور لوحاتك الحقيقية لاحقاً -->
+            <img src="https://unsplash.com" alt="Sunlit Matter">
+            <h3>Sunlit Matter</h3>
+            <div class="artist-name">Artist: Leyla Aydın</div>
+            <div class="price">$10</div>
+            <!-- عند الضغط يفتح نافذة الشراء ويحسب العمولة تلقائياً -->
+            <button class="btn" onclick="openCheckout('Sunlit Matter', 10)">Buy Now</button>
+        </div>
+
+        <!-- اللوحة الثانية -->
+        <div class="card">
+            <img src="https://unsplash.com" alt="Saltwater Study">
+            <h3>Saltwater Study</h3>
+            <div class="artist-name">Artist: Emre Sönmez</div>
+            <div class="price">$15</div>
+            <button class="btn" onclick="openCheckout('Saltwater Study', 15)">Buy Now</button>
+        </div>
+
+        <!-- اللوحة الثالثة -->
+        <div class="card">
+            <img src="https://unsplash.com" alt="Crimson Field">
+            <h3>Crimson Field</h3>
+            <div class="artist-name">Artist: Mira Kova</div>
+            <div class="price">$20</div>
+            <button class="btn" onclick="openCheckout('Crimson Field', 20)">Buy Now</button>
+        </div>
+
     </div>
+</section>
 
-    <!-- شبكة تصفح وعرض اللوحات الفنية (المتجر) -->
-    <div class="container" id="shop">
-        <div class="art-grid">
+<!-- قسم ميزات المنصة (TRUST) -->
+<section class="section" style="background: #f1f1f1;">
+    <h2>Why Choose THE EVARA?</h2>
+    <p>✔️ Only original handmade art</p>
+    <p>✔️ Direct support for artists</p>
+    <p>✔️ Secure buying experience</p>
+    <p>✔️ Only 10% commission</p>
+</section>
+
+<!-- قسم الإحصائيات (STATS) -->
+<section class="section">
+    <h2>Our Growth</h2>
+    <p>✔️ 9 artworks sold</p>
+    <p>✔️ 15 artists joined</p>
+</section>
+
+<!-- قسم الفنانين (ARTISTS) -->
+<section class="section" style="background: #f1f1f1;">
+    <h2>For Artists</h2>
+    <p>Join for free. No fees. Only pay when you sell.</p>
+</section>
+
+<!-- نافذة إتمام الطلب المخفية (Checkout Modal) -->
+<div class="modal" id="checkoutModal">
+    <div class="modal-content">
+        <h3 id="modalTitle">Checkout</h3>
+        <form id="orderForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="custName" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label>Phone Number (with country code)</label>
+                <input type="tel" id="custPhone" required placeholder="+1 234 567 890">
+            </div>
+            <div class="form-group">
+                <label>Shipping Address</label>
+                <input type="text" id="custAddress" required placeholder="City, Street, Building...">
+            </div>
             
-            <!-- لوحة 1 المعروضة للبيع -->
-            <div class="art-card">
-                <img src="https://unsplash.com" alt="Crimson Field">
-                <div class="art-card-body">
-                    <div class="art-title">Crimson Field</div>
-                    <div class="artist">الفنانة: Mira Kova</div>
-                    <div class="price">150 دولار</div>
-                    <button class="btn" onclick="openCheckout('Crimson Field', '150 دولار')">شراء اللوحة الآن</button>
-                </div>
-            </div>
-
-            <!-- لوحة 2 المعروضة للبيع -->
-            <div class="art-card">
-                <img src="https://unsplash.com" alt="Saltwater Study">
-                <div class="art-card-body">
-                    <div class="art-title">Saltwater Study</div>
-                    <div class="artist">الفنان: Emre Sönmez</div>
-                    <div class="price">200 دولار</div>
-                    <button class="btn" onclick="openCheckout('Saltwater Study', '200 دولار')">شراء اللوحة الآن</button>
-                </div>
-            </div>
-
-            <!-- لوحة 3 المعروضة للبيع -->
-            <div class="art-card">
-                <img src="https://unsplash.com" alt="Sunlit Matter">
-                <div class="art-card-body">
-                    <div class="art-title">Sunlit Matter</div>
-                    <div class="artist">الفنانة: Leyla Aydın</div>
-                    <div class="price">120 دولار</div>
-                    <button class="btn" onclick="openCheckout('Sunlit Matter', '120 دولار')">شراء اللوحة الآن</button>
-                </div>
-            </div>
-
-        </div>
+            <!-- أزرار التأكيد والإلغاء -->
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Confirm Order</button>
+            <button type="button" class="btn" style="width: 100%; background:#ccc; margin-top: 5px;" onclick="closeCheckout()">Cancel</button>
+        </form>
     </div>
+</div>
 
-    <!-- نافذة إتمام الدفع والشراء البسيطة (Checkout) تظهر تلقائياً للزبون -->
-    <div class="modal" id="checkoutModal">
-        <div class="modal-content">
-            <h3 id="modalTitle">إتمام طلب الشراء</h3>
-            <form id="orderForm">
-                <div class="form-group">
-                    <label>اسم المشتري الكامل</label>
-                    <input type="text" id="custName" required placeholder="اكتب اسمك الثلاثي">
-                </div>
-                <div class="form-group">
-                    <label>رقم هاتف المشتري (مع مفتاح الدولة)</label>
-                    <input type="tel" id="custPhone" required placeholder="+966 500000000">
-                </div>
-                <div class="form-group">
-                    <label>عنوان شحن اللوحة الفنية بالتفصيل</label>
-                    <input type="text" id="custAddress" required placeholder="المدينة، الحي، اسم الشارع والمبنى">
-                </div>
-                <button type="submit" class="btn" style="margin-top: 10px;">تأكيد وحفظ طلب الشراء</button>
-                <button type="button" class="btn" style="background:#ccc; margin-top: 10px;" onclick="closeCheckout()">إلغاء وتراجع</button>
-            </form>
-        </div>
-    </div>
+<div class="footer">
+    © 2026 THE EVARA
+</div>
 
-    <!-- تذييل الصفحة -->
-    <footer>
-        © 2026 THE EVARA · Original art, thoughtfully collected · hello@theevara.com
-    </footer>
+<!-- برمجة الجافا سكريبت الخاصة بنافذة الشراء وحساب العمولة -->
+<script>
+    let currentItemTitle = "";
+    let currentItemPrice = 0;
 
-    <!-- برمجة الأزرار بشكل بسيط وتفاعلي من المتصفح -->
-    <script>
-        let currentItem = "";
-        function openCheckout(title, price) {
-            currentItem = title + " (" + price + ")";
-            document.getElementById('modalTitle').innerText = "طلب لوحة: " + currentItem;
-            document.getElementById('checkoutModal').style.display = 'flex';
-        }
-        function closeCheckout() {
-            document.getElementById('checkoutModal').style.display = 'none';
-        }
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('شكراً لك من THE EVARA! تم تسجيل طلب الشراء للوحة ' + currentItem + ' بنجاح. سنقوم كمنصة بالتواصل معك ومع الفنان هاتفياً خلال ساعات لتأكيد استلام المبلغ، شحن اللوحة، واستقطاع عمولتنا (10%).');
-            closeCheckout();
-        });
-    </script>
+    // دالة لفتح نافذة الشراء وتجهيز البيانات
+    function openCheckout(title, price) {
+        currentItemTitle = title;
+        currentItemPrice = price;
+        
+        // حساب عمولة المنصة (10%) بشكل تلقائي ذكي وعرضها للشفافية
+        let commission = (price * 0.1).toFixed(2); 
+        
+        // تحديث عنوان نافذة الشراء
+        document.getElementById('modalTitle').innerText = "Order: " + title + " - $" + price + " (Includes 10% commission: $" + commission + ")";
+        document.getElementById('checkoutModal').style.display = 'flex';
+    }
+
+    // دالة لإغلاق نافذة الشراء
+    function closeCheckout() {
+        document.getElementById('checkoutModal').style.display = 'none';
+    }
+
+    // تشغيل التنبيه عند إتمام العميل للطلب بنجاح
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you from THE EVARA! Your order for "' + currentItemTitle + '" has been placed successfully. We will contact you and the artist via phone within 24 hours to arrange payment and secure shipping.');
+        closeCheckout();
+    });
+</script>
+
 </body>
 </html>
